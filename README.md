@@ -1,5 +1,7 @@
 # Data Structures
 
+Spring 2019
+
 DISCLAIMER: Do NOT use work in any dishonest way. This repository was created to track my software development progression. 
 
 ## Topics Covered
