@@ -1,0 +1,35 @@
+int giveChoice();
+
+int main()
+{
+
+	swimmingPool myPool;
+	myPool.getInfo();
+
+int choice = giveChoice();
+
+	/*determine information the return to the user based on their choice of the menu*/
+	if (choice == 1 || choice == 2) {
+		cout << "It will take " << myPool.time_fill() << " minutes to fully fill your pool. For a total of " << myPool.amount_fill() << " gallons of water." << endl;
+	}
+	else if (choice == 3 || choice == 4) {
+		cout << "It will take " << myPool.time_drain() << " minutes to fully drain your pool. For a total of " << myPool.amount_drain() << " gallons of water." << endl;
+	}
+
+}
+
+/*Menu bar to prompt user on what information they would like to access about their pool*/
+int giveChoice() {
+
+	int choice = 0;
+
+	cout << "Enter 1 to find out how long it will take to fill your pool when its empty and with how many gallons." << endl;
+	cout << "Enter 2 to find out how long it will take to fill your pool when its partially empty and with how many gallos." << endl;
+	cout << "Enter 3 to find out how long it will take to empty your pool when its full." << endl;
+	cout << "Enter 4 to find out how long it will take to empty your pool whe its partially full." << endl;
+	cout << "Enter number: ";
+	cin >> choice;
+	cout << endl;
+
+	return choice;
+}

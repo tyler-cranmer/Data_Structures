@@ -1,0 +1,9 @@
+﻿  Discussion_4.cpp
+C:\Users\tyler\source\repos\Discussion_4\InsertionSortAlgorithm.h(10,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\tyler\source\repos\Discussion_4\InsertionSortAlgorithm.h(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\tyler\source\repos\Discussion_4\Discussion_4.cpp(25): message : see reference to function template instantiation 'void fillArray<int>(elemType [],int)' being compiled
+          with
+          [
+              elemType=int
+          ]
+  Discussion_4.vcxproj -> C:\Users\tyler\source\repos\Discussion_4\Debug\Discussion_4.exe

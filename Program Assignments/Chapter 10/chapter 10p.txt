@@ -1,0 +1,192 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include "swimmingPool.h"
+
+using namespace std;
+
+int giveChoice();
+
+int main()
+{
+	
+	swimmingPool myPool;
+	myPool.getInfo();
+
+	int choice = giveChoice();
+	
+	if (choice == 1 || choice == 2) {
+		cout << "It will take " << myPool.time_fill() << " minutes to fully fill your pool. For a total of " << myPool.amount_fill() << " gallons of water." << endl;
+	}
+	else if (choice == 3 || choice == 4) {
+		cout << "It will take " << myPool.time_drain() << " minutes to fully drain your pool. For a total of " << myPool.amount_drain() << " gallons of water." << endl;
+	}
+
+}
+
+int giveChoice() {
+
+	int choice = 0;
+
+	cout << "Enter 1 to find out how long it will take to fill your pool when its empty and with how many gallons." << endl;
+	cout << "Enter 2 to find out how long it will take to fill your pool when its partially empty and with how many gallos." << endl;
+	cout << "Enter 3 to find out how long it will take to empty your pool when its full." << endl;
+	cout << "Enter 4 to find out how long it will take to empty your pool whe its partially full." << endl;
+	cout << "Enter number: ";
+	cin >> choice;
+	cout << endl;
+
+	return choice;
+}
+
+
+
+
+
+//////////////////////////////////
+H
+
+class swimmingPool
+{
+private:
+	double length;
+	double width;
+	double depth;
+	double fillRate;
+	double drainRate;
+	double percentage;
+	
+
+public:
+
+	swimmingPool();
+	void getInfo();
+	double amount_fill();
+	double amount_drain();
+	double time_fill();
+	double time_drain();
+
+};
+
+
+////////////////////////////////
+
+
+#include<iostream>
+#include "swimmingPool.h"
+
+using namespace std;
+
+swimmingPool::swimmingPool() {
+	length = 0.0;
+	width = 0.0;
+	depth = 0.0;
+	fillRate = 0.0;
+	drainRate = 0.0;
+	percentage = 0.0;
+}
+
+void swimmingPool::getInfo() {
+
+	int choice = 0;
+
+	cout << "How many feet is the length of your swimming pool? ";
+	cin >> length;
+	cout << endl << "How many feet is the width of your swimming pool? ";
+	cin >> width;
+	cout << endl << "What is the depth of your swimming pool in feet? ";
+	cin >> depth;
+	cout << endl << "What % of the pool is full? ";
+	cin >> percentage;
+
+	while (percentage < 0 || percentage > 100) {
+		cout << "Invalid Input. Please enter a number between 0 - 100";
+		cin >> percentage;
+	}
+
+	cout << endl << "Are you filling up or draining the pool? ";
+	cout << "Enter 1 for for filling and 2 for draining. ";
+	cin >> choice;
+
+	if (choice == 1) {
+		cout << endl << "At what rate in gallons per minute are you filling up the pool: ";
+		cin >> fillRate;
+		cout << endl;
+	}
+	else if (choice == 2) {
+		cout << endl << "At what rate in gallons per minute are you draining the pool: ";
+		cin >> drainRate;
+		cout << endl;
+	}
+}
+
+
+double swimmingPool::amount_fill() {
+	
+	double total_vol = 0;
+
+	if (percentage == 0 || percentage == 100) {
+
+		total_vol = length * width * depth * 7.5;
+		return total_vol;
+	}
+	else if (percentage > 0 && percentage < 100) {
+		
+		percentage = percentage / 100;
+		total_vol = total_vol - total_vol * percentage;
+		return total_vol;
+
+	}
+
+}
+
+double swimmingPool::amount_drain()
+{
+	double total_vol = 0;
+
+	if (percentage == 0 || percentage == 100) {
+
+		total_vol = length * width * depth * 7.5;
+		return total_vol;
+	}
+	else if (percentage > 0 && percentage < 100) {
+
+		percentage = percentage / 100;
+		total_vol = total_vol * percentage;
+		return total_vol;
+	}
+}
+
+double swimmingPool::time_fill() {
+
+	double volume = amount_fill();
+	double timeFill = volume / fillRate;
+	percentage = percentage * 100;
+
+	if (percentage == 0 || percentage == 100) {
+		return timeFill;
+	}
+	else if (percentage > 0 && percentage < 100) {
+		percentage = percentage / 100;
+		timeFill = (volume - volume * percentage) / fillRate;
+		return timeFill;
+	}
+}
+
+double swimmingPool::time_drain()
+{
+	double volume = amount_drain();
+	double timeDrain = volume / drainRate;
+	percentage = percentage * 100;
+
+	if (percentage == 0 || percentage == 100) {
+		return timeDrain;
+	}
+	else if (percentage > 0 && percentage < 100) {
+		percentage = percentage / 100;
+		timeDrain = (volume * percentage) / drainRate;
+		return timeDrain;
+	}
+}
+
+

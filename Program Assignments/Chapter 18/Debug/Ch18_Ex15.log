@@ -1,0 +1,10 @@
+﻿  Ch18_Ex15.cpp
+C:\Users\tyler\OneDrive\Documents\Tyler's Documents\CSC161\Program Assignments\Chapter 18\searchSortAlgorithms.h(10,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\tyler\OneDrive\Documents\Tyler's Documents\CSC161\Program Assignments\Chapter 18\searchSortAlgorithms.h(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\tyler\OneDrive\Documents\Tyler's Documents\CSC161\Program Assignments\Chapter 18\Ch18_Ex15.cpp(27): message : see reference to function template instantiation 'void fillArray<int>(elemType [],int)' being compiled
+          with
+          [
+              elemType=int
+          ]
+  LINK : C:\Users\tyler\OneDrive\Documents\Tyler's Documents\CSC161\Program Assignments\Chapter 18\Debug\Ch18_Ex15.exe not found or not built by the last incremental link; performing full link
+  Ch18_Ex15.vcxproj -> C:\Users\tyler\OneDrive\Documents\Tyler's Documents\CSC161\Program Assignments\Chapter 18\Debug\Ch18_Ex15.exe
